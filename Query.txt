@@ -32,6 +32,7 @@ db.products.find({price:{$gt:3000}}).pretty()
 
 
 iV)Realizar una consulta que traiga sólo el nombre del tercer producto más barato
+db.products.find().sort(1).skip(3).limit(1)
 
 C) Hacer una actualización sobre todos los productos, agregando el campo stock a todos ellos con un valor de 100.
 db.products.update({}, {$set: {stock:100}})
@@ -39,3 +40,6 @@ db.products.update({}, {$set: {stock:100}})
 
 D) Cambiar el stock a cero de los productos con precios mayores a 4000 pesos
 db.products.update({price:{$gt:4000}}, {$set: {stock:0}})
+
+E) Borrar los productos con precio menor a 1000 pesos
+db.products.deleteMany({price:{$lt:1000}})
